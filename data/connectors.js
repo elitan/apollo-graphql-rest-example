@@ -7,12 +7,6 @@ const API = {
 				console.log('request to users/' + id)
 				return res.data; //{ id: 1337, name: 'johan', username: 'elitan'};
 			});
-	},
-	getTree(id = 1) {
-		return {
-			id: id,
-			name: "Sven",
-		};
 	}
 }
 

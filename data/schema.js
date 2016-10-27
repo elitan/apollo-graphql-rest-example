@@ -8,14 +8,8 @@ type User {
 	website: String
 }
 
-type Tree {
-	id: Int
-	name: String
-}
-
 type Query {
 	user(id: Int, name: String): User
-	tree(id: Int): Tree
 }
 
 schema {
