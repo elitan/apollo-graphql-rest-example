@@ -22,9 +22,6 @@ const resolvers = {
 	},
 	Comment: {
 		post(comment) {
-			console.log('comment: ', comment);
-			console.log('post id: ', comment.postId);
-			const post = API.getPost(comment.postId)
 			return API.getPost(comment.postId);
 		},
 	}
