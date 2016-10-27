@@ -12,6 +12,11 @@ const resolvers = {
 			return API.getComment(args.id);
 		},
 	},
+	User: {
+		address(user) {
+			return user.address;
+		}
+	},
 	Post: {
 		user(post) {
 			return API.getUser(post.userId);
