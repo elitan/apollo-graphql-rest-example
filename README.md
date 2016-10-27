@@ -1,53 +1,46 @@
 Solution to [Tutorial: How to build a GraphQL server](https://medium.com/apollo-stack/tutorial-building-a-graphql-server-cddaa023c035#.wy5h1htxs)
 
+
 ```sh
-git clone git@github.com:apollostack/apollo-starter-kit.git
-cd apollo-starter-kit
-git checkout server-tutorial-solution
+git clone git@github.com:elitan/apollo-graphql-rest-example.git
+cd apollo-graphql-rest-example
 npm install
-npm run start
+npm start
 ```
 
-And in another terminal:
-
-```
-mongod
-```
-
-Then open [http://localhost:8080](http://localhost:8080)
+Then open [http://localhost:8080/graphiql](http://localhost:8080/graphiql)
 
 When you paste this on the left:
 
 ```
 {
-  author(firstName:"Edmond", lastName: "Jones"){
-    firstName
-    lastName
-    posts{
-      title
-      views
+    user(id: 1) {
+        name
+        address {
+            street
+            zipcode
+        }
     }
-  }
-  getFortuneCookie
 }
 ```
 
-and hit the play button (cmd-return), then you should get something like this on the right:
-
-```json
+or
+```
 {
-  "data": {
-    "author": {
-      "firstName": "Edmond",
-      "lastName": "Jones",
-      "posts": [
-        {
-          "title": "A post by Edmond",
-          "views": 92
+    post(id: 1) {
+        user {
+            name
+            username
+            phone
+        },
+        comments{
+            body
+            email
         }
-      ]
-    },
-    "getFortuneCookie": "A good conscience is a soft pillow."
-  }
+    }
 }
-```  
+```
+
+or .. ( you get the point).
+
+The result should emerge on the right. You can see in the terminal where you started the server (`npm start`) what request(s) that was made.
