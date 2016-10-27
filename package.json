@@ -45,5 +45,5 @@
     "eslint-plugin-react": "^4.2.3",
     "graphql": "^0.5.0",
     "nodemon": "^1.9.1"
-  },
+  }
 }
