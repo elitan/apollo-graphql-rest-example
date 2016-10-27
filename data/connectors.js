@@ -1,13 +1,20 @@
 import axios from 'axios';
 
 const API = {
-	getUser(id = 1) {
+	getUser(id) {
 		return axios.get(`https://jsonplaceholder.typicode.com/users/${id}`)
-			.then((res) => {
-				console.log('request to users/' + id)
-				return res.data; //{ id: 1337, name: 'johan', username: 'elitan'};
-			});
-	}
+		.then((res) => {
+			console.log('request to users/' + id)
+			return res.data; //{ id: 1337, name: 'johan', username: 'elitan'};
+		});
+	},
+	getPost(id) {
+		return axios.get(`https://jsonplaceholder.typicode.com/posts/${id}`)
+		.then((res) => {
+			console.log('request to users/' + id)
+			return res.data; //{ id: 1337, name: 'johan', username: 'elitan'};
+		});
+	},
 }
 
 export { API };
