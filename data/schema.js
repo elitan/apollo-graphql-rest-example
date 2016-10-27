@@ -13,11 +13,21 @@ type Post {
 	user: User
 	title: String
 	body: String
+	comments: [Comment]
+}
+
+type Comment {
+	id: Int
+	post: Post
+	name: String
+	email: String
+	body: String
 }
 
 type Query {
 	user(id: Int): User
 	post(id: Int): Post
+	comment(id: Int): Comment
 }
 
 schema {
