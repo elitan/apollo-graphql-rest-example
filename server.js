@@ -3,7 +3,7 @@ import Schema from './data/schema';
 import Resolvers from './data/resolvers';
 // import Mocks from './data/mocks';
 
-import { apolloExpress, graphiqlExpress } from 'apollo-server';
+import { graphqlExpress, graphiqlExpress } from 'graphql-server-express';
 import { makeExecutableSchema, addMockFunctionsToSchema } from 'graphql-tools';
 import bodyParser from 'body-parser';
 
@@ -18,14 +18,9 @@ const executableSchema = makeExecutableSchema({
   printErrors: true,
 });
 
-// addMockFunctionsToSchema({
-//   schema: executableSchema,
-//   mocks: Mocks,
-//   preserveResolvers: true,
-// });
 
 // `context` must be an object and can't be undefined when using connectors
-graphQLServer.use('/graphql', bodyParser.json(), apolloExpress({
+graphQLServer.use('/graphql', bodyParser.json(), graphqlExpress({
   schema: executableSchema,
   context: {},
 }));
